@@ -1,4 +1,4 @@
-# Test technique — Gestion des examens (Angular + Node mock)
+# Gestion des examens (Angular + Node mock)
 
 ## Lancer l'application
 1. Construire et lancer les conteneurs :
