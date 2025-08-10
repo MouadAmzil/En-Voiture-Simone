@@ -1,0 +1,48 @@
+<div class="container">
+<div class="header-row">
+        <div>
+    <div><h1>Mes examens</h1></div>
+    <div><h4><strong>{{exams.length}}</strong> examens à venir</h4></div>
+</div>
+<div>
+      <button class="primary-btn" (click)="SiwtchMode()">Organiser un examen</button>
+
+</div>
+</div>
+<div *ngIf="isModeADD">
+    <h3>Organiser un examen</h3>
+<form (ngSubmit)="addExam()">
+  <input type="text" [(ngModel)]="newExam.name" name="title" placeholder="Titre" required>
+  <input type="text" [(ngModel)]="newExam.location" name="location" placeholder="Lieu">
+  <input type="date" [(ngModel)]="newExam.date" name="date" required>
+  <input type="time" [(ngModel)]="newExam.time" name="time" placeholder="Time">
+  <input type="text" [(ngModel)]="newExam.status" name="status" placeholder="Status">
+  <button type="submit" class="primary-btn" >➕ Ajouter</button>
+</form>
+</div>
+
+<ul>
+  <li *ngFor="let exam of exams">
+      <div class="exam-card">
+        <div class="item">
+          👤  {{ exam.name }}
+        </div>
+        <div class="item">
+          📍  {{ exam.location }}
+        </div>
+        <div class="item">
+         📅 {{ exam.date }}
+        </div>
+        <div class="item">
+         ⏰ {{ exam.time }}
+        </div>
+        <div class="item">
+<span [ngClass]="getStatusClass(exam.status)">
+  {{ exam.status }}
+</span>        </div>
+      </div>
+  </li>
+</ul>
+
+
+</div>
